@@ -9,6 +9,9 @@ guide.insert_document(doc)
 
 guide.print_guide()
 
+print(guide.search('b.c'))
+
 guide.delete_document(doc)
 
 guide.print_guide()
+
