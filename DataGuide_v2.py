@@ -203,3 +203,10 @@ class DataGuide:
             type_name = self._get_type(value)
             #Update counter of type stored
             node.update_counter(type_name, delta=-1)
+
+ def print_guide(self):
+        def _print_node(node, path="root"):
+            print(f"{path}: {node.counters}")
+            for key, child in node.children.items():
+                _print_node(child, path + "." + key)
+        _print_node(self.root)
