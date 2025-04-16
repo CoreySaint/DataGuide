@@ -204,11 +204,11 @@ class DataGuide:
             #Update counter of type stored
             node.update_counter(type_name, delta=-1)
 
-     def print_guide(self):
+    def print_guide(self):
          """
          Method to print the data stored in a dataguide
          """
-         #Submethod tp print individual node in data guide
+         #Submethod to print individual node in data guide
         def _print_node(node, path="root"):
             #Print key and counters dictionary for node
             print(f"{path}: {node.counters}")
@@ -217,3 +217,12 @@ class DataGuide:
                 _print_node(child, path + "." + key)
         #Start by printing root node
         _print_node(self.root)
+
+    def clear(self):
+        """
+        Method to clear dataguide when debugging
+        """
+        #Reset root node
+        self.root = Node()
+        #Reset total docs counter
+        self.total_docs = 0
