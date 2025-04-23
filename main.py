@@ -1,5 +1,5 @@
 import json
-from DataGuide import DataGuide, Node
+from DataGuide_v4 import DataGuide, Node
 
 guide = DataGuide()
 
@@ -24,3 +24,13 @@ with open("example_2.json", "r") as f:
 guide.insert_document(data)
 
 guide.print_guide()
+print()
+
+coreguide = guide.core()
+
+coreguide.print_guide()
+print()
+
+cardguide = guide.card()
+
+cardguide.print_guide()
