@@ -137,7 +137,7 @@ class DataGuide:
             #Iterate over documents in file
             for d in doc:
                 self.total_docs += 1
-                self._insert_value(self.root, doc)
+                self._insert_value(self.root, d)
         #If single document
         self.total_docs += 1
         self._insert_value(self.root, doc)
