@@ -1,5 +1,5 @@
 import json
-from DataGuide_v4 import DataGuide, Node
+from DataGuide_v5 import DataGuide, Node
 
 #Testing basic functionality
 guide = DataGuide()
