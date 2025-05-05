@@ -36,7 +36,8 @@ print()
 
 cardguide = guide.card()
 
-cardguide.print_guide()
+print(cardguide)
+print()
 
 #Testing edge cases
 edge_cases = DataGuide()
