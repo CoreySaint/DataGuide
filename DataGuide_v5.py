@@ -366,3 +366,4 @@ class DataGuide:
             for key, value in child_sum.items():
                 #Store key and sum counters
                 total[key] = total.get(key, 0) + value
+        return total
