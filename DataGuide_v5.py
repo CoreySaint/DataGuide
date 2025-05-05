@@ -214,7 +214,7 @@ class DataGuide:
             #Decrement array counter
             node.update_counter("arr", delta=-1)
             #Check for values stored in array
-            if "*" == node.children:
+            if "*" in node.children:
                 #Iterate over values stored in array
                 for element in value:
                     #Recursive call to function for array elements
