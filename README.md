@@ -1,4 +1,5 @@
 ------------------------------------------------Intro------------------------------------------------
+
 The purpose of this project is to implement methods into python that create a dataguide
 given JSON documents and perform various tasks on them. A dataguide is essentially a schema
 for a JSON document containing the keys as well as a count of data types contained in the
