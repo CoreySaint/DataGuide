@@ -42,9 +42,22 @@ node.update_counter(type_name, delta=1):
 
 node.to_dict():
 
+  Converts a node to dictionary format for exportation into text file.
+
 node.from_dict(doc):
 
+  Converts a node from a dictionary format in a text file into a node object. The input "doc" specifies 
+  the document from which the node will be created. The document will have to be loaded into python prior
+  and stored as a variable. Here is an example of how to accomplish this:
+
+    with open("filename.txt", r) as f:
+      doc = json.load(f)
+
 dataguide.search(path):
+
+  Takes a path as input which should be a sequence of keys exactly as they appear in the document seperated 
+  by dots (.). Returns boolean based on if the path is present or not. To access arrays, add a star after 
+  the key of the array (Example path: a.b.c.* if c is the key for an array)
 
 dataguide.insert_document(doc):
 
@@ -66,6 +79,12 @@ dataguide.core():
 
 dataguide.card(path=None):
 
+dataguide.union(other):
+
+dataguide.intersection(other):
+
+dataguide.difference(other):
+
 --------------------------------------------Helper Methods-------------------------------------------
     
     *These methods are called by the above methods and do not need to be called by user*
@@ -83,3 +102,11 @@ dataguide._delete_value(node, value):
 dataguide._extract_core(node):
 
 dataguide._sum_counters(node):
+
+dataguide._union_nodes(node1, node2):
+
+dataguide._intersect_nodes(node1, node2):
+
+dataguide._subtract_nodes(node1, node2):
+
+
