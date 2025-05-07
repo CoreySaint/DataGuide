@@ -40,16 +40,16 @@ class Node:
         }
     
     @classmethod
-    def from_dict(cls, d):
+    def from_dict(cls, doc):
         """
         Class method to convert data guide text file to dictionary for output
         """
         #Create a new node
         node = cls()
         #Add counters to node
-        node.counters = d.get("counters", counters())
+        node.counters = doc.get("counters", counters())
         #Add children to node
-        node.children = {key: cls.from_dict(child_dict) for key, child_dict in d.get("children", {}).items()}
+        node.children = {key: cls.from_dict(child_dict) for key, child_dict in doc.get("children", {}).items()}
         return node
 
 class DataGuide:
