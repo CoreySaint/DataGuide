@@ -67,6 +67,7 @@ dataguide.core():
 dataguide.card(path=None):
 
 --------------------------------------------Helper Methods-------------------------------------------
+    
     *These methods are called by the above methods and do not need to be called by user*
 
 dataguide._traverse_path(path):
