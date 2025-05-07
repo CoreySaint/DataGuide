@@ -273,16 +273,16 @@ class DataGuide:
         }
 
     @classmethod
-    def from_dict(cls, d):
+    def from_dict(cls, doc):
         """
         Class method to convert data guide text file to dictionary for output
         """
         #Create new data guide
         guide = cls()
         #Get total documents number from data guide text file
-        guide.total_docs = d.get("total_docs", 0)
+        guide.total_docs = doc.get("total_docs", 0)
         #Set root node and recursively call function to iterate through data guide dictionary in text file
-        guide.root = Node.from_dict(d.get("root", {}))
+        guide.root = Node.from_dict(doc.get("root", {}))
         return guide
 
     
