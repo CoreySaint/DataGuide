@@ -9,7 +9,26 @@ printing the guide, saving/loading dataguides, and clearing the guide. Additiona
 are included as well to help identify characteristics of the dataguide like core (extracts 
 keys present in all documents),card (extracts total counts of a document), union, 
 intersection, and projection. Below contains all the classes, functions, and methods 
-implemented, their purpose, and their variables
+implemented, their purpose, and their variables.
+
+------------------------------------------Required Packages------------------------------------------
+
+**Regular Expressions**
+
+  The regular expressions package is a built in module, so no installation is necessary, just 
+  importation:
+
+    import re
+
+**JSON**
+
+  The JSON package is a built in module, so no installation is necessary, just importation:
+
+    import json
+
+**Python Version**
+
+  Built using Python 3.12.2
 
 -----------------------------------------------Classes-----------------------------------------------
 
