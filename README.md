@@ -233,3 +233,11 @@ implemented, their purpose, and their variables.
 **5. Save dataguide**
 
     dataguide.save("filename.txt")
+
+**6. Run Methods**
+
+    dataguide.search("a")
+
+    core = dataguide.core()
+
+    card = dataguide.card()
