@@ -15,7 +15,7 @@ implemented, their purpose, and their variables
 
 Node Class
 
-  The Node class is used to create individual node objects which are contained in the 
+    The Node class is used to create individual node objects which are contained in the 
   dataguide in a tree-like structure. Each node initializes with an empty children 
   dictionary and a template counters dictionaries containing all possible types and initial 
   counts of zero.
