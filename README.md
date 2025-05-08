@@ -68,14 +68,14 @@ implemented, their purpose, and their variables
 
     dataguide.search("a.b.c")
 
-dataguide.insert_document(doc):
+**dataguide.insert_document(doc):**
 
   Takes a document as input and adds said document to the dataguide. Specifically iterates through document 
   key-value pairs and increments counters based on type of value, also increases total_docs by one.
 
     dataguide.insert_document({"a": 1, "b": {"c": 'foo', "d": 2}, "e": [1, 2, 3]})
 
-dataguide.delete_document(doc):
+**dataguide.delete_document(doc):**
 
   Takes a document as input and removes said document from the dataguide. Specifically iterates through document 
   and finds the key-values pairs in the dataguide. Then it decrements counters based on type of value at each 
@@ -83,25 +83,25 @@ dataguide.delete_document(doc):
 
     dataguide.delete_document({"a": 1, "b": {"c": 'foo', "d": 2}, "e": [1, 2, 3]})
     
-dataguide.print_guide():
+**dataguide.print_guide():**
 
   Prints the dataguide with each key and associated counters dictionary on a distinct line.
 
-dataguide.clear():
+**dataguide.clear():**
 
   Removes all keys and counters from the dataguide and resets total_docs to zero.
 
-dataguide.save(filename):
+**dataguide.save(filename):**
 
   Converts dataguide into JSON format and saves to text file named based on input filename variable.
 
     dataguide.save("test.txt")
 
-dataguide.to_dict():
+**dataguide.to_dict():**
 
   Converts dataguide to single dictionary, used when saving dataguide to file.
 
-dataguide.from_dict(doc):
+**dataguide.from_dict(doc):**
 
   Takes a file containing a dataguide and converts it back into dataguide object with nodes. The doc variable is 
   the document being converted and requires it to be saved as a variable prior to loading.
@@ -110,72 +110,72 @@ dataguide.from_dict(doc):
       doc = json.load(f)
     dataguide.from_dict(doc)
 
-dataguide.load(filename):
+**dataguide.load(filename):**
 
   Can take a specific files path as input and from it convert it into a dataguide with accurate nodes.
 
     dataguide.load("text.txt")
 
-dataguide.core():
+**dataguide.core():**
 
   Returns a list of all core keys and their value counts. A core key is one that appears in every document.
 
     dataguide_core = dataguide.core()
 
-dataguide.card(path=None):
+**dataguide.card(path=None):**
 
   Returns a single counter dictionary containing the total variable type counts for an entire path or dataguide.
   If no path is specified, will return for total dataguide.
 
     dataguide_card = dataguide.card()
 
-dataguide.union(other):
+**dataguide.union(other):**
 
-dataguide.intersection(other):
+**dataguide.intersection(other):**
 
-dataguide.difference(other):
+**dataguide.difference(other):**
 
 --------------------------------------------Helper Methods-------------------------------------------
     
-    *These methods are called by the above methods and do not need to be called by user*
+*These methods are called by the above methods and do not need to be called by user*
 
-dataguide._traverse_path(path):
+**dataguide._traverse_path(path):**
 
   Method used to traverse through a path, the final node in the path is returned if the path exists, if
   not then None is returned. Used in conjunction with multiple other methods.
 
-dataguide._get_type(value):
+**dataguide._get_type(value):**
 
   Used to get the specific type of a variable, used when adding or removing documents. Returns string
   representing type (int, string, float, etc.)
 
-dataguide._is_date(s):
+**dataguide._is_date(s):**
 
   Used to tell if a string is a date or just a string, returns True if string is a date else false.
 
-dataguide._insert_value(node, value):
+**dataguide._insert_value(node, value):**
 
   Used to insert a single value into a dataguide, recursively called on each child node.
 
-dataguide._delete_value(node, value):
+**dataguide._delete_value(node, value):**
 
   Method used to decrease counter for a type when deleting documents. Will delete key/node if all
   counters are zero after decrease.
 
-dataguide._extract_core(node):
+**dataguide._extract_core(node):**
 
   Method used to check if a single node is a core node or not, recursively called on children of node.
   Node object is returned if it is a core node, if not then None returned.
 
-dataguide._sum_counters(node):
+**dataguide._sum_counters(node):**
 
   Used to sum all the counters together starting with input node, recursively called on children.
   Dictionary containing total counts returned.
 
-dataguide._union_nodes(node1, node2):
+**dataguide._union_nodes(node1, node2):**
 
-dataguide._intersect_nodes(node1, node2):
+**dataguide._intersect_nodes(node1, node2):**
 
-dataguide._subtract_nodes(node1, node2):
+**dataguide._subtract_nodes(node1, node2):**
 
 
