@@ -20,11 +20,15 @@ Node Class
   dictionary and a template counters dictionaries containing all possible types and initial 
   counts of zero.
 
+    node = Node()
+
 DataGuide Class
 
   The DataGuide class is used to store all nodes present in the document and has most of the
   necessary methods for creation and maintenance of the guide. Each DataGuide intializes with 
   a root node being created and a total document count attribute being set to zero.
+
+    dataguide = Dataguide()
 
 ----------------------------------------------Functions----------------------------------------------
 
@@ -54,6 +58,7 @@ node.from_dict(doc):
 
     with open("filename.txt", r) as f:
       doc = json.load(f)
+    node.from_dict(doc)
 
 dataguide.search(path):
 
@@ -101,13 +106,28 @@ dataguide.from_dict(doc):
   Takes a file containing a dataguide and converts it back into dataguide object with nodes. The doc variable is 
   the document being converted and requires it to be saved as a variable prior to loading.
 
+    with open("filename.txt", r) as f:
+      doc = json.load(f)
+    dataguide.from_dict(doc)
+
 dataguide.load(filename):
 
   Can take a specific files path as input and from it convert it into a dataguide with accurate nodes.
 
+    dataguide.load("text.txt")
+
 dataguide.core():
 
+  Returns a list of all core keys and their value counts. A core key is one that appears in every document.
+
+    dataguide_core = dataguide.core()
+
 dataguide.card(path=None):
+
+  Returns a single counter dictionary containing the total variable type counts for an entire path or dataguide.
+  If no path is specified, will return for total dataguide.
+
+    dataguide_card = dataguide.card()
 
 dataguide.union(other):
 
@@ -121,17 +141,36 @@ dataguide.difference(other):
 
 dataguide._traverse_path(path):
 
+  Method used to traverse through a path, the final node in the path is returned if the path exists, if
+  not then None is returned. Used in conjunction with multiple other methods.
+
 dataguide._get_type(value):
+
+  Used to get the specific type of a variable, used when adding or removing documents. Returns string
+  representing type (int, string, float, etc.)
 
 dataguide._is_date(s):
 
+  Used to tell if a string is a date or just a string, returns True if string is a date else false.
+
 dataguide._insert_value(node, value):
+
+  Used to insert a single value into a dataguide, recursively called on each child node.
 
 dataguide._delete_value(node, value):
 
+  Method used to decrease counter for a type when deleting documents. Will delete key/node if all
+  counters are zero after decrease.
+
 dataguide._extract_core(node):
 
+  Method used to check if a single node is a core node or not, recursively called on children of node.
+  Node object is returned if it is a core node, if not then None returned.
+
 dataguide._sum_counters(node):
+
+  Used to sum all the counters together starting with input node, recursively called on children.
+  Dictionary containing total counts returned.
 
 dataguide._union_nodes(node1, node2):
 
