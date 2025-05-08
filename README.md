@@ -208,6 +208,7 @@ implemented, their purpose, and their variables.
     dataguide = DataGuide()
      
 **3. Load data**
+
    **a. From JSON file**
 
     with open("filename.json", "r") as f
