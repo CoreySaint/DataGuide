@@ -13,7 +13,7 @@ implemented, their purpose, and their variables
 
 -----------------------------------------------Classes-----------------------------------------------
 
-Node Class
+**Node Class**
 
   The Node class is used to create individual node objects which are contained in the 
   dataguide in a tree-like structure. Each node initializes with an empty children 
@@ -22,7 +22,7 @@ Node Class
 
     node = Node()
 
-DataGuide Class
+**DataGuide Class**
 
   The DataGuide class is used to store all nodes present in the document and has most of the
   necessary methods for creation and maintenance of the guide. Each DataGuide intializes with 
@@ -32,25 +32,25 @@ DataGuide Class
 
 ----------------------------------------------Functions----------------------------------------------
 
-counters():
+**counters():**
 
   This is the only function used in the dataguide program, it simply returns a template dictionary 
   containing all possible types with initial counts of zero, used in initialization of a node.
 
 -----------------------------------------------Methods-----------------------------------------------
 
-node.update_counter(type_name, delta=1):
+**node.update_counter(type_name, delta=1):**
 
   Increases or decreases counter for a specific type in a node based on input type and delta 
   (default = 1). Used when inserting documents into a dataguide.
 
     node.update_count('int', -1)
 
-node.to_dict():
+**node.to_dict():**
 
   Converts a node to dictionary format for exportation into text file.
 
-node.from_dict(doc):
+**node.from_dict(doc):**
 
   Converts a node from a dictionary format in a text file into a node object. The input "doc" specifies 
   the document from which the node will be created. The document will have to be loaded into python prior
@@ -60,7 +60,7 @@ node.from_dict(doc):
       doc = json.load(f)
     node.from_dict(doc)
 
-dataguide.search(path):
+**dataguide.search(path):**
 
   Takes a path as input which should be a sequence of keys exactly as they appear in the document seperated 
   by dots (.). Returns boolean based on if the path is present or not. To access arrays, add a star after 
