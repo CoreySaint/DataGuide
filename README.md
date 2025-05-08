@@ -199,36 +199,36 @@ implemented, their purpose, and their variables.
 
 -----------------------------------------Creating a DataGuide----------------------------------------
 
-1. Import DataGuide
+**1. Import DataGuide**
 
     from DataGuide.py import DataGuide
    
-2. Create DataGuide object
+**2. Create DataGuide object**
 
     dataguide = DataGuide()
      
-3. Load data
-   a. From JSON file
+**3. Load data**
+   **a. From JSON file**
 
     with open("filename.json", "r") as f
       data = json.load(f)
 
     dataguide.insert_document(data)
    
-   b. From dictionary
+   **b. From dictionary**
 
     dict = {"a": 1, "b": "foo"}
 
     dataguide.insert_document(dict)
 
-   c. From dataguide file
+   **c. From dataguide file**
 
     dataguide.load("filename.txt")
    
-4. Check dataguide
+**4. Check dataguide**
 
     dataguide.print_guide()
    
-5. Save dataguide
+**5. Save dataguide**
 
     dataguide.save("filename.txt")
