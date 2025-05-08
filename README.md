@@ -40,6 +40,8 @@ node.update_counter(type_name, delta=1):
   Increases or decreases counter for a specific type in a node based on input type and delta 
   (default = 1). Used when inserting documents into a dataguide.
 
+    node.update_count('int', -1)
+
 node.to_dict():
 
   Converts a node to dictionary format for exportation into text file.
@@ -59,21 +61,49 @@ dataguide.search(path):
   by dots (.). Returns boolean based on if the path is present or not. To access arrays, add a star after 
   the key of the array (Example path: a.b.c.* if c is the key for an array)
 
+    dataguide.search("a.b.c")
+
 dataguide.insert_document(doc):
+
+  Takes a document as input and adds said document to the dataguide. Specifically iterates through document 
+  key-value pairs and increments counters based on type of value, also increases total_docs by one.
+
+    dataguide.insert_document({"a": 1, "b": {"c": 'foo', "d": 2}, "e": [1, 2, 3]})
 
 dataguide.delete_document(doc):
 
+  Takes a document as input and removes said document from the dataguide. Specifically iterates through document 
+  and finds the key-values pairs in the dataguide. Then it decrements counters based on type of value at each 
+  specific key and decrements total_docs by one. Additionally, will remove a key if all counters are at zero.
+
+    dataguide.delete_document({"a": 1, "b": {"c": 'foo', "d": 2}, "e": [1, 2, 3]})
+    
 dataguide.print_guide():
+
+  Prints the dataguide with each key and associated counters dictionary on a distinct line.
 
 dataguide.clear():
 
-dataguide.save():
+  Removes all keys and counters from the dataguide and resets total_docs to zero.
+
+dataguide.save(filename):
+
+  Converts dataguide into JSON format and saves to text file named based on input filename variable.
+
+    dataguide.save("test.txt")
 
 dataguide.to_dict():
 
+  Converts dataguide to single dictionary, used when saving dataguide to file.
+
 dataguide.from_dict(doc):
 
+  Takes a file containing a dataguide and converts it back into dataguide object with nodes. The doc variable is 
+  the document being converted and requires it to be saved as a variable prior to loading.
+
 dataguide.load(filename):
+
+  Can take a specific files path as input and from it convert it into a dataguide with accurate nodes.
 
 dataguide.core():
 
