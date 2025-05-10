@@ -150,6 +150,11 @@ implemented, their purpose, and their variables.
 
 **dataguide.union(other):**
 
+  Returns a new dataguide made up of all keys and values from both dataguides. The input variable, other, is a
+  second dataguide.
+
+    union_guide = dataguide1.union(dataguide2)
+
 **dataguide.intersection(other):**
 
 **dataguide.difference(other):**
@@ -192,6 +197,10 @@ implemented, their purpose, and their variables.
   Dictionary containing total counts returned.
 
 **dataguide._union_nodes(node1, node2):**
+
+  Helper method that takes two nodes, one from each dataguide, and adds them to the new guide. If the
+  nodes share the same key, their counts are summed and combined, if they do not, then they are simply
+  added to the new guide.
 
 **dataguide._intersect_nodes(node1, node2):**
 
