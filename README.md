@@ -159,6 +159,11 @@ implemented, their purpose, and their variables.
 
 **dataguide.difference(other):**
 
+  Returns a new dataguide made up of the difference between two dataguides. The input variable, other, is a 
+  second dataguide.
+
+    difference_guide = dataguide1.difference(dataguide2)
+
 --------------------------------------------Helper Methods-------------------------------------------
     
 *These methods are called by the above methods and do not need to be called by user*
@@ -206,6 +211,15 @@ implemented, their purpose, and their variables.
 
 **dataguide._subtract_nodes(node1, node2):**
 
+  Helper method that recursively takes two nodes, one from each dataguide, and returns the difference
+  between nodes. If the nodes share a key, node2's counts are subtracted from node1's. Additionally
+  removes nodes with zero counts after difference.
+
+**dataguide._clone_subtree(node):**
+
+  Helper method that recursively copies and returns a node along with all of its children. Used in
+  _subtract_nodes method when a key appears in only the first dataguide and not in the second.
+
 -----------------------------------------Creating a DataGuide----------------------------------------
 
 **1. Import DataGuide**
@@ -250,3 +264,5 @@ implemented, their purpose, and their variables.
     core = dataguide.core()
 
     card = dataguide.card()
+
+    union = dataguide.union(dataguide2)
