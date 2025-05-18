@@ -90,3 +90,8 @@ guide4.insert_document(data2)
 difference = guide3.difference(guide4)
 difference.print_guide()
 print()
+
+intersect = guide3.intersect(guide4)
+intersect.print_guide()
+print(intersect.total_docs)
+print()
