@@ -56,6 +56,8 @@ print()
 
 print(edge_cases.total_docs)
 
+#Testing union, difference, and intersect methods
+
 data1 = {"a": 2, "b": {"c": 7, "d": 'bar', "e": 4}, "f": [1, 2, 3]}
 data2 = {"a": 2, "b": {"c": 'bar'}, "g": 7}
 
