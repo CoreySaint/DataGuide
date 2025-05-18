@@ -155,7 +155,12 @@ implemented, their purpose, and their variables.
 
     union_guide = dataguide1.union(dataguide2)
 
-**dataguide.intersection(other):**
+**dataguide.intersect(other):**
+
+  Returns a new dataguide made up of keys and values that would be present if the original JSON files were
+  intersected. The input variable, other, is a second dataguide.
+
+    intersection_guide = dataguide1.intersect(dataguide2)
 
 **dataguide.difference(other):**
 
@@ -207,7 +212,16 @@ implemented, their purpose, and their variables.
   nodes share the same key, their counts are summed and combined, if they do not, then they are simply
   added to the new guide.
 
-**dataguide._intersect_nodes(node1, node2):**
+**dataguide._gather_paths(self, node, prefix="")**
+
+  Helper method that takes a node and a prefix and returns all paths that branch from that node.
+  If a root node is input, will return all paths in document. Prefix is used when a node is not
+  the root node, this ensures the path in its entirety is stored.
+
+**dataguide._max_noncommon(self, all_paths, common_paths)**
+  Helper method that takes all paths and the common paths of two dataguides that were calculated
+  in the intersect method. Returns the maximum total of counters in the noncommon paths (paths
+  present in only one of the dataguides).
 
 **dataguide._subtract_nodes(node1, node2):**
 
