@@ -219,9 +219,16 @@ implemented, their purpose, and their variables.
   the root node, this ensures the path in its entirety is stored.
 
 **dataguide._max_noncommon(self, all_paths, common_paths)**
+
   Helper method that takes all paths and the common paths of two dataguides that were calculated
   in the intersect method. Returns the maximum total of counters in the noncommon paths (paths
   present in only one of the dataguides).
+
+**dataguide._ensure_root_obj(self)**
+
+  Helper method that checks the count of the root object counter and if the value is zero with 
+  child node(s) present, sets object counter to be equal to one because a node with children
+  cannot have a zero count for object.
 
 **dataguide._subtract_nodes(node1, node2):**
 
