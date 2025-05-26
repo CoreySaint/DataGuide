@@ -582,5 +582,8 @@ class DataGuide:
         return n
     
     def _ensure_root_obj(self):
-        if self.root.counters['obj'] == 0:
+        """
+        Helper method to ensure object counter in root node is atleast one when child nodes are present
+        """
+        if self.root.counters['obj'] == 0 and self.root.children != {}:
             self.root.counters['obj'] = 1
