@@ -429,6 +429,22 @@ class DataGuide:
         root_diff = self._subtract_nodes(self.root, other.root)
         #Assign root node if one exists, else empty node
         result.root = root_diff if root_diff is not None else Node()
+        #Used to store number of unique keys
+        uniques_total = 0
+        #Gather paths in each data guide
+        self_paths = set(self._gather_paths(self.root))
+        other_paths = set(self._gather_paths(other.root))
+        #Iterate over unique paths
+        for path in self_paths - other_paths:
+            #Get nodes of path
+            node = self._traverse_path(path)
+            #If a node exists
+            if node:
+                #Sum unique counters
+                uniques_total += sum(node.counters.values())
+        #Object counter in root set to minimum between total documents and unique counters
+        result.root.counters['obj'] = min(self.total_docs, uniques_total)
+        #Ensures root atleast has one object
         result._ensure_root_obj()
         return result
 
@@ -543,7 +559,11 @@ class DataGuide:
                 current = current.children.setdefault(part, Node())
             #Set counters of current node to comb dictionary
             current.counters = comb
+        #Set root object counter to number of unqiue documents
+        result.root.counters['obj'] = m_int
+        #Ensure root object counter has at least one node
         result._ensure_root_obj()
+        
         return result
     
     def _gather_paths(self, node, prefix=""):
