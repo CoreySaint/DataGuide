@@ -51,7 +51,7 @@ edge_cases.print_guide()
 print()
 
 edge_core = edge_cases.core()
-edge_code.print_guide()
+edge_core.print_guide()
 print()
 
 print(edge_cases.total_docs)
